@@ -234,19 +234,25 @@ export default function Facebook() {
             "Content-Type": "application/json",
           }}
         );
+        
+// REMOVE THIS WHOLE CODE ==== BELOW IF WE DONT WANT TO UPDATE STATUS BASED ON RESPONSE BACK
+
+        // =====================================================================================
         //ASSUMING IF SERVER SEND SUCCESSFUL RESPONSE BASED ON THAT WE SET THE SERVER RESPONSE, USERID
       //WILL BE SAME AND WILLBE SAVED AFTER LOGIN,  CAMPAIGNID AND STATUS IS DYNAMIC AND SENT BY SERVER. SET 
-      //THOSE VALUES BASED ON SERVER RESPONSE,  WHEN THE RESPONSE IS SET USEEFFECT WILL BE CALLED AFTER DETECTING REPONSE HAS BEEN SET AND WILL TRIGGER THE UPDATE DATA FUNCTION WITH SERVER RESPONSE
+      //THOSE VALUES BASED ON SERVER RESPONSE,  WHEN THE RESPONSE IS SET USEEFFECT WILL BE CALLED AFTER DETECTING REPONSE HAS BEEN SET AND WILL TRIGGER THE UPDATE DATA FUNCTION WITH SERVER RESPONSE.  IF CLIENT SENDS ANOTHER REQUEST BEFORE GETTING RESPONSE BACK FOR PREVIOUS ONE, NOW CLIENT IS WAITING FOR UPDATING STATUS
+      //FOR LATEST ADDED CAMPAIGN ONLY NOT FOR PREVIOUS ONE
     if(response){
       setLoading("Uploaded!")
       // console.log(" res fromm server")
       // setServerResponse( 
       //           {
-      //               userId: ctx.state.userData?._id,
-      //               campaignId: "bf7b9873-fdbf-4d25-989e-a1f16db9df08",
-      //               status: "completed"
+      //               userId: ctx.state.userData?._id,          //response.userId,  
+      //               campaignId: "bf7b9873-fdbf-4d25-989e-a1f16db9df08",   // response.campaignId
+      //               status: "completed"         // response.status
       //             })
     }
+    // ====================================================================================
         console.log("Data: ", response.data);
       } 
       
