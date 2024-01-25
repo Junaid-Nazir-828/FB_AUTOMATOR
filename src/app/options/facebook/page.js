@@ -135,6 +135,7 @@ export default function Facebook() {
       password,
       groupId,
       campaignId,
+      userId: ctx.state.userData?._id,
       [activeTabLabel.toLowerCase()]:
         activeTabLabel === "Publish"
           ? publishText
