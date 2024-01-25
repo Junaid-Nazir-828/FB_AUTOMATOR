@@ -165,7 +165,7 @@ const dataToSend={
 try {
     const dataResponse=await axios.post("http://localhost:3000/api/addinsta",dataToSend)
     if(dataResponse.status==201){
-      setLoading("Saved! Please wait while we upload your post...")
+      setLoading("Saved!")
       dispatch({type:"set-user",payload:dataResponse.data.userData})
      
     }

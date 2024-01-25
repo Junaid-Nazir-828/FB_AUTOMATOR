@@ -200,7 +200,7 @@ export default function Facebook() {
       );
       // console.log(dataResponse, ".............");
       if (dataResponse.status == 201) {
-        setLoading("Saved! Please wait while we upload your post...")
+        setLoading("Saved!")
         dispatch({ type: "set-user", payload: dataResponse.data.userData });
         setServerResponse( 
                 {
