@@ -142,6 +142,7 @@ export default function Instagram() {
     const data = {
       username,
       password,
+      userId:ctx.state.userData?._id,
       limit,
       hashtag,
       campaignId,
