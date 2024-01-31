@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 export async function POST(req){
     const {url,data}=await req.json()
    
- console.log(url,data)
+
     try {
         const response=await axios.post(url,data)
        

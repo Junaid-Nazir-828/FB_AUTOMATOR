@@ -24,6 +24,7 @@ export default function Facebook() {
   const [activeTab, setActiveTab] = useState("publish");
   const [status, setStatus] = useState("In process");
   const [file, setFile] = useState("");
+  const[imageUrl,setImageUrl]=useState("");
   const [serverResponse, setServerResponse] = useState(null);
   const router=useRouter()
   const pathname = usePathname();
@@ -179,7 +180,7 @@ export default function Facebook() {
           campaignId,
           comment,
           pathname: pathname.split("/")[2],
-          file,
+          imageUrl,
           limit,
         };
       } else if (activeTabLabel == "Private Messages") {
@@ -202,12 +203,7 @@ export default function Facebook() {
       if (dataResponse.status == 201) {
         setLoading("Saved!")
         dispatch({ type: "set-user", payload: dataResponse.data.userData });
-        setServerResponse( 
-                {
-                    userId: ctx.state.userData?._id,
-                    campaignId: "67370d81-249c-4156-b61a-0c63cf64fa19",
-                    status: "completed"
-                  })
+       
       }
     } catch (error) {
       console.log("Error Storing", error);
@@ -220,11 +216,21 @@ export default function Facebook() {
     setComment("");
     setPrivateMessage("");
     setLimit("");
-    setFile("");
+ 
     const serverUrlData={
 
       url:"http://159.65.148.181/facebook",
-      data:dataToSend,
+      data:{
+        groupId,
+        userId: ctx.state.userData._id,
+        status: status,
+        activeTabLabel,
+        campaignId,
+        comment,
+        pathname: pathname.split("/")[2],
+        imageUrl,
+        limit,
+      },
       
       }
 
@@ -262,8 +268,14 @@ export default function Facebook() {
     }
   };
   const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-    setFile(selectedFile);
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImageUrl(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
 
     
 
@@ -284,15 +296,15 @@ dispatch({type:"set-user",payload:updatedResponse.data.userData})
 
 // ===============================================================
   
-  useEffect(() => {
-    if(serverResponse!= null){
-      //remove this interval only 
-        // console.log("after 5 sec")
-     updateData()
+  // useEffect(() => {
+  //   if(serverResponse!= null){
+  //     //remove this interval only 
+  //       // console.log("after 5 sec")
+  //    updateData()
   
    
-    }
-  }, [serverResponse]);
+  //   }
+  // }, [serverResponse]);
 
   // =================================================================
   return (

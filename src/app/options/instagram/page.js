@@ -106,15 +106,15 @@ export default function Instagram() {
   //=====================================================
   
   //REMOVE SET INTERVAL , JUST CALL UPDATE FUNCTION INSIDE USE EFFECT, IT WAS USED TO MIMIC WAITING FOR SERVER RESPONSE TO TRIGGER THE UPDATE FUNCTION
-  useEffect(() => {
-    if(serverResponse!= null){
-         const interval = setInterval(() => {
-        // console.log("after 5 sec")
-     updateData()
-     clearInterval(interval)
-    }, 2000);
-    }
-  }, [serverResponse]);
+  // useEffect(() => {
+  //   if(serverResponse!= null){
+  //        const interval = setInterval(() => {
+  //       // console.log("after 5 sec")
+  //    updateData()
+  //    clearInterval(interval)
+  //   }, 2000);
+  //   }
+  // }, [serverResponse]);
 
   //=====================================================
 
@@ -158,7 +158,7 @@ const dataToSend={
       comment: commentChecked ? comment : "",
       privateMessage: privateMessageChecked ? privateMessage : "",
       activeTabLabel,
-      pathname:pathname.split('/')[2],
+      pathname:"instagram",
       status
 
 }
@@ -181,7 +181,7 @@ try {
 // sending data to server to avoid CORS error, because api folder contains api routes and they are server components so sending request from server to remote server of INSTAGRAM. client request to server on another ip cause CORS error
 const serverUrlData={
 
-url:`http://159.65.148.181/${pathname.split('/')[2]}`,
+url:`http://159.65.148.181/instagram`,
 data:data,
 
 }
