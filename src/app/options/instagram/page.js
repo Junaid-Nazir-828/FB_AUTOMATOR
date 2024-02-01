@@ -183,7 +183,7 @@ try {
 // sending data to server to avoid CORS error, because api folder contains api routes and they are server components so sending request from server to remote server of INSTAGRAM. client request to server on another ip cause CORS error
 const serverUrlData={
 
-url:`http://159.65.148.181/instagram`,
+url:`http://164.92.93.53/instagram`,
 data:data,
 
 }
