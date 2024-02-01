@@ -196,7 +196,7 @@ export default function Facebook() {
         };
       }
       const dataResponse = await axios.post(
-        "http://localhost:8080/api/insertdata",
+        "https://clownfish-app-utnsf.ondigitalocean.app/api/insertdata",
         dataToSend
       );
       // console.log(dataResponse, ".............");
@@ -236,7 +236,7 @@ export default function Facebook() {
 
       try {
         const response =  await axios.post(
-          "http://localhost:8080/api/reqtoserver", serverUrlData,
+          "https://clownfish-app-utnsf.ondigitalocean.app/api/reqtoserver", serverUrlData,
           {headers:{
             "Content-Type": "application/json",
           }}
@@ -283,7 +283,7 @@ export default function Facebook() {
   const updateData = async () => {
     console.log(serverResponse)
     const updatedResponse = await axios.put(
-      "http://localhost:8080/api/updatedata",
+      "https://clownfish-app-utnsf.ondigitalocean.app/api/updatedata",
       serverResponse
     );
     if(updatedResponse.status==200){

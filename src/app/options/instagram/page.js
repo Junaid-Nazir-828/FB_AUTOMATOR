@@ -89,7 +89,7 @@ export default function Instagram() {
   const updateData = async () => {
     // console.log(serverResponse)    
     const updatedResponse = await axios.put(
-      "http://localhost:8080/api/updatedata",
+      "https://clownfish-app-utnsf.ondigitalocean.app/api/updatedata",
       serverResponse
     );
     if(updatedResponse.status==200){
@@ -164,7 +164,7 @@ const dataToSend={
 }
 
 try {
-    const dataResponse=await axios.post("http://localhost:8080/api/addinsta",dataToSend)
+    const dataResponse=await axios.post("https://clownfish-app-utnsf.ondigitalocean.app/api/addinsta",dataToSend)
     if(dataResponse.status==201){
       setLoading("Saved!")
       dispatch({type:"set-user",payload:dataResponse.data.userData})
@@ -187,7 +187,7 @@ data:data,
 }
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/reqtoserver",
+        "https://clownfish-app-utnsf.ondigitalocean.app/api/reqtoserver",
         serverUrlData,
       );
 
