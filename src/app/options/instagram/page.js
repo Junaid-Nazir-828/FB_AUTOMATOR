@@ -89,7 +89,7 @@ export default function Instagram() {
   const updateData = async () => {
     // console.log(serverResponse)    
     const updatedResponse = await axios.put(
-      "http://localhost:3000/api/updatedata",
+      "http://localhost:8080/api/updatedata",
       serverResponse
     );
     if(updatedResponse.status==200){
@@ -164,7 +164,7 @@ const dataToSend={
 }
 
 try {
-    const dataResponse=await axios.post("http://localhost:3000/api/addinsta",dataToSend)
+    const dataResponse=await axios.post("http://localhost:8080/api/addinsta",dataToSend)
     if(dataResponse.status==201){
       setLoading("Saved!")
       dispatch({type:"set-user",payload:dataResponse.data.userData})
@@ -187,7 +187,7 @@ data:data,
 }
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/reqtoserver",
+        "http://localhost:8080/api/reqtoserver",
         serverUrlData,
       );
 

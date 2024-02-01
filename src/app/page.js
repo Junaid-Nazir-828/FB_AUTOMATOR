@@ -30,7 +30,7 @@ export default function Login() {
     const logindt= {
       email,password
     }
-    const loginrequest=await axios.post('http://localhost:3000/api/login',logindt)
+    const loginrequest=await axios.post('http://localhost:8080/api/login',logindt)
   
     if(loginrequest.data.success==true && loginrequest.status==200){
       dispatch({type:"Log In", payload:{userData:loginrequest.data.userExist,login:true}})

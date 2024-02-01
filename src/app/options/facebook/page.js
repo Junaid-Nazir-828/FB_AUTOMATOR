@@ -196,7 +196,7 @@ export default function Facebook() {
         };
       }
       const dataResponse = await axios.post(
-        "http://localhost:3000/api/insertdata",
+        "http://localhost:8080/api/insertdata",
         dataToSend
       );
       // console.log(dataResponse, ".............");
@@ -236,7 +236,7 @@ export default function Facebook() {
 
       try {
         const response =  await axios.post(
-          "http://localhost:3000/api/reqtoserver", serverUrlData,
+          "http://localhost:8080/api/reqtoserver", serverUrlData,
           {headers:{
             "Content-Type": "application/json",
           }}
@@ -283,7 +283,7 @@ export default function Facebook() {
   const updateData = async () => {
     console.log(serverResponse)
     const updatedResponse = await axios.put(
-      "http://localhost:3000/api/updatedata",
+      "http://localhost:8080/api/updatedata",
       serverResponse
     );
     if(updatedResponse.status==200){
