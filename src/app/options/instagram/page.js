@@ -151,6 +151,8 @@ export default function Instagram() {
     };
     
 const dataToSend={
+      username,
+      password,
      userId:ctx.state.userData?._id,
      campaignId,
       limit,
