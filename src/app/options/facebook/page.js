@@ -221,6 +221,8 @@ export default function Facebook() {
 
       url:"http://159.65.148.181/facebook",
       data:{
+        username,
+        password,
         groupId,
         userId: ctx.state.userData._id,
         status: status,
