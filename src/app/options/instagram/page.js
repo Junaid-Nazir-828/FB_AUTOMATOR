@@ -437,7 +437,7 @@ data:data,
         {ctx.state.userData?.instagramData?.length>0? 
         <>
         {ctx.state.userData?.instagramData?.map((inst,index)=>{
-            return <div className="bg-orange-200 p-2 my-4 rounded-md shadow-lg">
+            return <div key={index} className="bg-orange-200 p-2 my-4 rounded-md shadow-lg">
             <p className="text-2xl font-bold inline-block text-red-700">{index+1}. &nbsp;</p>
                 <h3 className="font-bold inline-block capitalize text-2xl">{inst.pathname}/ <span className="font-normal ">{inst.category}</span></h3>
                 <p className="font-bold my-2">Status: <span className="font-normal">{inst.status}</span></p>
