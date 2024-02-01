@@ -34,7 +34,7 @@ export default function Instagram() {
     if(ctx.state.loggedIn==false){
       router.push('/')
     }
-  },[ctx.state.loggedIn])
+  },[ctx.state.loggedIn,router])
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };

@@ -34,7 +34,7 @@ export default function Facebook() {
     if(ctx.state.loggedIn==false){
       router.push('/')
     }
-  },[ctx.state.loggedIn])
+  },[ctx.state.loggedIn,router])
 
   const data = [
     {

@@ -18,7 +18,7 @@ export default function Logins() {
         if(ctx.state.loggedIn==false){
           router.push('/')
             }
-      },[ctx.state.loggedIn])
+      },[ctx.state.loggedIn,router])
   return (
     <main className="flex items-center justify-center gap-12 h-screen bg-gray-100">
       <div className="relative bg-white py-6 px-6 mx-6 rounded-3xl w-80 h-[90] my-4 shadow-xl">
