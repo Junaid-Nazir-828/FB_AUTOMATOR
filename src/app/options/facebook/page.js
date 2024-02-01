@@ -366,7 +366,7 @@ dispatch({type:"set-user",payload:updatedResponse.data.userData})
                       <p className="font-bold mt-2"> Group ID: </p>
                       <p className="bg-slate-100 w-full rounded-md p-2 mb-2 mx-0">{fb.groupId.join(",")}</p>
                       <p className="font-bold mt-2">Publish/Comment/Private Message:</p>
-                      <p className="bg-slate-100 w-full rounded-md p-2 mb-2 mx-0 ">
+                      <p className="break-words w-[20rem] md:w-[27rem] bg-slate-100  rounded-md p-2 mb-2 mx-0 ">
                       
                        {fb.publishText
                           ? fb.publishText

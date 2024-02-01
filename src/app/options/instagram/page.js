@@ -448,9 +448,9 @@ data:data,
                 <p className="bg-white p-2 rounded-md">{inst.campaignId}</p>
                 <p className="font-bold mt-2">{inst.comment? "Comment:":"Private Message:"}</p>
 
-                <p className="bg-white mb-2 p-2 rounded-md">{inst.comment? inst.comment:inst.privateMessage}</p>
+                <p className="break-words w-80 md:w-96 bg-white mb-2 p-2 rounded-md">{inst.comment? inst.comment:inst.privateMessage}</p>
                 <p className="font-bold mt-2">{inst.privateMessage && inst.comment ? "Private Message:":""}</p>
-                {inst.privateMessage && inst.comment ? <p className="bg-white mb-2 p-2 rounded-md"> inst.privateMessage</p>:""}
+                {inst.privateMessage && inst.comment ? <p className="break-words bg-white w-80 md:w-96 mb-2 p-2 rounded-md"> {inst.privateMessage}</p>:""}
               
             </div>
         })
