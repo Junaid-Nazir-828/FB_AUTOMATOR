@@ -236,28 +236,15 @@ export default function Facebook() {
 
       try {
         const response =  await axios.post(
-          "https://clownfish-app-utnsf.ondigitalocean.app/api/reqtoserver", serverUrlData,
-          {headers:{
-            "Content-Type": "application/json",
-          }}
-        );
+          "http://159.65.148.181/facebook", serverUrlData.data
         
-// REMOVE THIS WHOLE CODE ==== BELOW IF WE DONT WANT TO UPDATE STATUS BASED ON RESPONSE BACK
+        );
+
 
         // =====================================================================================
-        //ASSUMING IF SERVER SEND SUCCESSFUL RESPONSE BASED ON THAT WE SET THE SERVER RESPONSE, USERID
-      //WILL BE SAME AND WILLBE SAVED AFTER LOGIN,  CAMPAIGNID AND STATUS IS DYNAMIC AND SENT BY SERVER. SET 
-      //THOSE VALUES BASED ON SERVER RESPONSE,  WHEN THE RESPONSE IS SET USEEFFECT WILL BE CALLED AFTER DETECTING REPONSE HAS BEEN SET AND WILL TRIGGER THE UPDATE DATA FUNCTION WITH SERVER RESPONSE.  IF CLIENT SENDS ANOTHER REQUEST BEFORE GETTING RESPONSE BACK FOR PREVIOUS ONE, NOW CLIENT IS WAITING FOR UPDATING STATUS
-      //FOR LATEST ADDED CAMPAIGN ONLY NOT FOR PREVIOUS ONE
+        
     if(response){
-      setLoading("Uploaded!")
-      // console.log(" res fromm server")
-      // setServerResponse( 
-      //           {
-      //               userId: ctx.state.userData?._id,          //response.userId,  
-      //               campaignId: "bf7b9873-fdbf-4d25-989e-a1f16db9df08",   // response.campaignId
-      //               status: "completed"         // response.status
-      //             })
+  
     }
     // ====================================================================================
         console.log("Data: ", response.data);
@@ -269,16 +256,14 @@ export default function Facebook() {
   };
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setImageUrl(event.target.result);
-      };
-      reader.readAsDataURL(file);
-    }
-
-    
-
+    setImageUrl(file);
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onload = (event) => {
+        
+    //   };
+    //   reader.readAsDataURL(file);
+    // }
   };
   const updateData = async () => {
     console.log(serverResponse)
