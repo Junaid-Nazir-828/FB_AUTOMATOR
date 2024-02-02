@@ -219,10 +219,8 @@ export default function Facebook() {
  
     const serverUrlData={
 
-      url:"http://164.92.93.53/facebook",
+      url:"http://159.65.148.181/facebook",
       data:{
-        username,
-        password,
         groupId,
         userId: ctx.state.userData._id,
         status: status,
@@ -238,8 +236,10 @@ export default function Facebook() {
 
       try {
         const response =  await axios.post(
-          "http://159.65.148.181/facebook", serverUrlData.data
-        
+          "https://clownfish-app-utnsf.ondigitalocean.app/api/reqtoserver", serverUrlData,
+          {headers:{
+            "Content-Type": "application/json",
+          }}
         );
 
 
@@ -256,17 +256,17 @@ export default function Facebook() {
       console.error("Error:", error.message);
     }
   };
-  const handleFileChange = (event) => {
+const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setImageUrl(file);
-    // if (file) {
-    //   const reader = new FileReader();
-    //   reader.onload = (event) => {
-        
-    //   };
-    //   reader.readAsDataURL(file);
-    // }
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setImageUrl(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
+
   const updateData = async () => {
     console.log(serverResponse)
     const updatedResponse = await axios.put(
