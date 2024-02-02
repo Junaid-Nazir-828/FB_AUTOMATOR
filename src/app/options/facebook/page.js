@@ -209,18 +209,14 @@ export default function Facebook() {
       console.log("Error Storing", error);
     }
 
-    setUsername("");
-    setPassword("");
-    setGroupId([]);
-    setPublish("");
-    setComment("");
-    setPrivateMessage("");
-    setLimit("");
+    
  
     const serverUrlData={
 
       url:"http://159.65.148.181/facebook",
       data:{
+        username,
+        password,
         groupId,
         userId: ctx.state.userData._id,
         status: status,
@@ -255,6 +251,13 @@ export default function Facebook() {
     catch (error) {
       console.error("Error:", error.message);
     }
+    setUsername("");
+    setPassword("");
+    setGroupId([]);
+    setPublish("");
+    setComment("");
+    setPrivateMessage("");
+    setLimit("");
   };
 const handleFileChange = (event) => {
     const file = event.target.files[0];
